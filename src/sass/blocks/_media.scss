@@ -1,0 +1,98 @@
+@media (max-width: 991px) {
+    .container {
+        max-width: 750px;
+    }
+    .advantages {
+        &__item {
+            width: 30%;
+        }
+        &__descr {
+            width: 100%;
+        }
+    }
+
+}
+@media (max-width: 768px){
+    .container {
+        max-width: 575px;
+    }
+    .header {
+        &__logo {
+            width: 200px;
+        }
+        &__official {
+            font-size: 10px;
+            span {
+                font-size: 14px;
+            }
+        }
+        &__phone {
+            font-size: 14px;
+        }
+        .button {
+            width: 131px;
+            font-size: 10px;
+        }
+    }
+    .promo {
+        padding: 21px 10px 63px 10px;
+        &__header {
+            font-size: 36px;
+        }
+        &__subheader {
+            font-size: 20px;
+        }
+        .button_main {
+            width: 260px;
+            height: 45px;
+        }
+    }
+    .advantages {
+        &__title {
+            font-size: 26px;
+        }
+        &__subtitle {
+            font-size: 14px;
+        }
+    }
+
+
+}
+
+@media (max-width: 575px){
+    .container {
+        max-width: 320px;
+    }
+
+    .promo {
+        .header {
+            flex-direction: column;
+            &__contacts {
+                display: none;
+            }
+            &__official {
+                margin-top: 20px;
+            }
+        }
+        &__icons {
+            width: 100%;
+        }
+        &__icon {
+            width: auto;
+        }
+    }
+
+    .advantages {
+        height: auto;
+        &__wrapper {
+            margin-top: 40px;
+            flex-direction: column;
+        }
+        &__item {
+            width: 100%;
+        }
+        &__item:nth-child(n+2) {
+            margin-top: 20px;
+        }
+    }
+}
