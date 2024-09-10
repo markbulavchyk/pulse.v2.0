@@ -18,6 +18,11 @@
             font-size: 18px;
         }
     }
+    .reviews {
+        &__item-text {
+            max-width: 450px;
+        }
+    }
 
 }
 @media (max-width: 768px){
@@ -66,6 +71,15 @@
     .consultation {
         .container {
             max-width: 540px;
+        }
+    }
+    .reviews {
+        &__item-text {
+            max-width: 350px;
+        }
+        &__item-pic {
+            width: 120px;
+            height: 120px;
         }
     }
 }
@@ -126,6 +140,29 @@
             .button {
                 width: 280px;
             }
+        }
+    }
+    .reviews {
+        .title {
+            font-size: 28px;
+        }
+        &__item-text {
+            max-width: 272px;
+        }
+        &__item-pic {
+            width: 34px;
+            height: 34px;
+        }
+        &__text_name {
+            font-size: 16px;
+        }
+        &__text_stats {
+            font-size: 12px;
+        }
+        &__text_message {
+            transform: translateX(-25px);
+            font-size: 14px;
+            line-height: 18px;
         }
     }
 }
