@@ -1,6 +1,4 @@
 @import 'base/variables';
-@import 'blocks/font';
-
 h1, h2, h3, h4, h5, figure, p, ol, ul {
 	margin: 0;
 }
@@ -20,6 +18,7 @@ img {
 	font-family: 'Museo Sans Cyrl', sans-serif;
 }
 .container {
+    position: relative;
 	max-width: 950px;
 	margin: 0 auto;
 }
@@ -31,5 +30,6 @@ img {
 @import 'blocks/titles';
 @import 'blocks/forms';
 @import 'blocks/reviews';
+@import 'blocks/carousel';
 
 @import 'blocks/media';

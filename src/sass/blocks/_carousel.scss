@@ -1,0 +1,117 @@
+.slider-container {
+    padding: 81px 0;
+    position: relative; /* Контейнер для слайдера */
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+.slides img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none; /* Чтобы кнопки не блокировали свайпы */
+}
+
+.slider-nav button {
+    pointer-events: all; /* Кнопки остаются активными */
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    outline: none;
+}
+
+.prev {
+    background-image: url('../icons/left.svg');
+}
+
+.next {
+    background-image: url('../icons/right.svg');
+}
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .slider {
+        max-width: 1000px;
+    }
+    .slides img {
+        width: 100%; /* Один слайд занимает всю ширину */
+    }
+    .slider-nav button {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 991px) {
+    .slider {
+        max-width: 800px;
+    }
+    .slides img {
+        width: 100%; /* Один слайд занимает всю ширину */
+    }
+    .slider-nav button {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .slider {
+        max-width: 600px;
+    }
+    .slides img {
+        width: 100%; /* Один слайд занимает всю ширину */
+    }
+    .slider-nav button {
+        width: 30px;
+        height: 30px;
+    }
+    .prev {
+        left: -40px; /* Уменьшаем смещение влево */
+    }
+    .next {
+        right: -40px; /* Уменьшаем смещение вправо */
+    }
+}
+
+@media (max-width: 575px) {
+    .slider {
+        max-width: 100%;
+    }
+    .slides img {
+        width: 100%; /* Один слайд занимает всю ширину */
+    }
+    .slider-nav button {
+        width: 25px;
+        height: 25px;
+    }
+    .prev {
+        left: -30px; /* Ещё меньшее смещение для мобильных */
+    }
+    .next {
+        right: -30px;
+    }
+}

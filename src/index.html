@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pulse</title>
     <link rel="stylesheet" href="css/modern-normalize.min.css">
+    <link rel="stylesheet" href="css/font.css">
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-    <div class="promo">
-        <!-- <img src="img/bg/bg.png" alt="background_image" class="promo__img"> -->
+    <section class="promo">
         <div class="container">
             
             <header class="header">
@@ -56,9 +56,9 @@
             </div>
 
         </div>
-    </div>
+    </section>
 
-    <div class="advantages">
+    <section class="advantages">
         <div class="container">
             <h2 class="title">
                 НАШИ ПРЕИМУЩЕСТВА
@@ -82,9 +82,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="consultation">
+    <section class="consultation">
         <div class="container">
             <h2 class="title">Получите бесплатную консультацию <br>по  подбору пульсометра </h2>
             <div class="consultation__descr">Просто заполните форму заявки <br> и мы перезвоним вам в течении 10 минут</div>
@@ -98,9 +98,27 @@
 
             </form>
         </div>
-    </div>
+    </section>
 
-    <div class="reviews">
+    <section class="carousel">
+        <div class="container">
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slides">
+                        <img src="img/carousel/first.png" alt="">
+                        <img src="img/carousel/second.png" alt="">
+                        <img src="img/carousel/third.png" alt="">
+                    </div>
+                    <div class="slider-nav">
+                        <button id="prev" class="nav-button prev"></button>
+                        <button id="next" class="nav-button next"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews">
         <div class="container">
             <div class="title">отзывы клиентов</div>
             <div class="reviews__wrapper">
@@ -133,8 +151,7 @@
                 </div>
             </div>
         </div>
-    </div>
-    
+    </section>
     
     <script src="js/script.js"></script>
 </body>
