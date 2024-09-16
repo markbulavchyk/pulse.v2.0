@@ -88,8 +88,8 @@ function dragEnd() {
         endDrag();
     }
 }
-
 // Общая логика завершения перетаскивания
+
 function endDrag() {
     isDragging = false;
     const movedBy = currentTranslate - (-currentIndex * slideWidth);
@@ -102,3 +102,46 @@ function endDrag() {
         moveToSlide(currentIndex);
     }
 }
+
+// TABS
+document.addEventListener('DOMContentLoaded', function() {
+    // Получаем все табы и контент
+    const tabs = document.querySelectorAll('.catalog__tab');
+    const contents = document.querySelectorAll('.catalog__content');
+
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => {
+            // Удаляем активный класс у всех табов и контента
+            tabs.forEach(t => t.classList.remove('catalog__tab_active'));
+            contents.forEach(c => c.classList.remove('catalog__content_active'));
+
+            // Добавляем активный класс к выбранному табу и соответствующему контенту
+            tab.classList.add('catalog__tab_active');
+            contents[index].classList.add('catalog__content_active');
+        });
+    });
+});
+
+// кнопка подробнее / назад
+function toggleSlide(selector) {
+    // Получаем все элементы, соответствующие селектору
+    const items = document.querySelectorAll(selector);
+
+    items.forEach((item, index) => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Получаем все элементы контента и списка
+            const contentItems = document.querySelectorAll('.catalog-item__content');
+            const listItems = document.querySelectorAll('.catalog-item__list');
+
+            // Переключаем активные классы для соответствующих элементов
+            contentItems[index].classList.toggle('catalog-item__content_active');
+            listItems[index].classList.toggle('catalog-item__list_active');
+        });
+    });
+}
+
+// Инициализация функции для всех кнопок
+toggleSlide('.catalog-item__link');
+toggleSlide('.catalog-item__back');
