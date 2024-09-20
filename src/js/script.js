@@ -145,3 +145,121 @@ function toggleSlide(selector) {
 // Инициализация функции для всех кнопок
 toggleSlide('.catalog-item__link');
 toggleSlide('.catalog-item__back');
+
+// Modal
+// document.querySelectorAll('[data-modal=consultation]').forEach(function(element) {
+//     element.addEventListener('click', function() {
+//         document.querySelector('.overlay').style.display = 'block';
+//         document.getElementById('consultation').style.display = 'block';
+//     });
+// });
+
+// document.querySelectorAll('.modal__close').forEach(function(element) {
+//     element.addEventListener('click', function() {
+//         document.querySelectorAll('.overlay, #consultation, #thanks, #order').forEach(function(item) {
+//             item.style.display = 'none';
+//         });
+//     });
+// });
+
+// document.querySelectorAll('.button_mini').forEach(function(button, i) {
+//     button.addEventListener('click', function() {
+//         var description = document.querySelectorAll('.catalog-item__subtitle')[i].textContent;
+//         document.querySelector('#order .modal__descr').textContent = description;
+//         document.querySelector('.overlay').style.display = 'block';
+//         document.getElementById('order').style.display = 'block';
+//     });
+// });
+
+// Функция для плавного показа элемента
+function fadeIn(element) {
+    element.style.display = 'block';  // Устанавливаем display:block для отображения
+    setTimeout(function() {
+        element.classList.add('show');  // После небольшого времени добавляем класс для анимации
+    }, 10);  // Небольшая задержка для запуска CSS-анимации
+}
+
+// Функция для плавного скрытия элемента
+function fadeOut(element) {
+    element.classList.remove('show');  // Убираем класс, чтобы началась анимация скрытия
+    setTimeout(function() {
+        element.style.display = 'none';  // После окончания анимации скрываем элемент
+    }, 300);  // Задержка должна совпадать с длительностью CSS перехода (0.3s)
+}
+
+// Открытие модального окна консультации
+document.querySelectorAll('[data-modal=consultation]').forEach(function(element) {
+    element.addEventListener('click', function() {
+        fadeIn(document.querySelector('.overlay'));
+        fadeIn(document.getElementById('consultation'));
+    });
+});
+
+// Закрытие всех модальных окон
+document.querySelectorAll('.modal__close').forEach(function(element) {
+    element.addEventListener('click', function() {
+        fadeOut(document.querySelector('.overlay'));
+        document.querySelectorAll('#consultation, #thanks, #order').forEach(function(item) {
+            fadeOut(item);
+        });
+    });
+});
+
+// Открытие модального окна заказа
+document.querySelectorAll('.button_mini').forEach(function(button, i) {
+    button.addEventListener('click', function() {
+        var description = document.querySelectorAll('.catalog-item__subtitle')[i].textContent;
+        document.querySelector('#order .modal__descr').textContent = description;
+        fadeIn(document.querySelector('.overlay'));
+        fadeIn(document.getElementById('order'));
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Получаем все формы с классом 'feed-form'
+    const forms = document.querySelectorAll('.feed-form');
+  
+    forms.forEach(form => {
+      form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Останавливаем отправку формы по умолчанию
+  
+        let isValid = true; // Флаг для проверки валидации
+  
+        // Получаем значения полей
+        const name = form.querySelector('input[name="name"]').value.trim();
+        const phone = form.querySelector('input[name="phone"]').value.trim();
+        const email = form.querySelector('input[name="email"]').value.trim();
+  
+        // Проверяем поле имени (обязательное)
+        if (name === '') {
+          isValid = false;
+          alert('Пожалуйста, введите ваше имя.');
+        }
+  
+        // Проверяем поле телефона (обязательное и числовое)
+        if (phone === '') {
+          isValid = false;
+          alert('Пожалуйста, введите ваш телефон.');
+        } else if (isNaN(phone)) {
+          isValid = false;
+          alert('Телефон должен содержать только цифры.');
+        }
+  
+        // Проверяем поле email (обязательное и корректный формат)
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email === '') {
+          isValid = false;
+          alert('Пожалуйста, введите ваш email.');
+        } else if (!emailRegex.test(email)) {
+          isValid = false;
+          alert('Пожалуйста, введите корректный email.');
+        }
+  
+        // Если все поля корректны, показываем сообщение об успехе
+        if (isValid) {
+          alert('Форма успешно отправлена!');
+          form.reset(); // Очищаем форму после успешной отправки
+        }
+      });
+    });
+  });

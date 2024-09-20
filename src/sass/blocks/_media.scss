@@ -89,7 +89,8 @@
     }
     .catalog {
         &-item {
-            width: 260px;
+            // width: 260px;
+            width: 100%;
         }
         &__tab {
             width: 170px;
@@ -196,6 +197,41 @@
             justify-content: center;
             .catalog-item {
                 margin-right: 0;
+            }
+        }
+    }
+    .footer {
+        &__info {
+            padding: 0;
+            width: 75%;
+        }
+        &__addr {
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+        &__phone {
+            margin-top: 25px;
+            margin-bottom: 0;
+        }
+        &__social {
+            margin-top: 20%;
+        }
+    }
+    .overlay {
+        .modal {
+            width: 320px;
+            &__close {
+                top: 5px;
+                right: 5px;
+            }
+        }
+        .feed-form {
+            input {
+                width: 80%;
+            }
+            .button {
+                width: 80%;
+                font-size: 14px;
             }
         }
     }
